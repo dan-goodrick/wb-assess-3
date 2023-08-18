@@ -19,7 +19,7 @@
 {% block form %}
   <form action="/like-fossil" method="POST">
     <select name="fossil" id="like-form">
-          <option>Select your favorite</option>
+      <option>Select your favorite</option>
       {% for k, v in fossils %}
         {% if loop.index <= 4 %}
           <option value={{k | string}}>{{ v.name | string}}</option>

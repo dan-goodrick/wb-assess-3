@@ -32,7 +32,7 @@ export default {
   },
   liker: (req, res) => {
     console.log("req.body", req.body.fossil);
-    if (req.body.fossil !== 'Select your favorite') {
+    if (req.body.fossil !== "Select your favorite") {
       MOST_LIKED_FOSSILS[req.body.fossil].num_likes += 1;
       res.render("thank-you.html.njk", { name: req.session.name });
     }

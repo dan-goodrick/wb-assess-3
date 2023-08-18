@@ -3,7 +3,7 @@ import session from "express-session";
 import morgan from "morgan";
 import nunjucks from "nunjucks";
 import ViteExpress from "vite-express";
-import ctrl from './controller.js'
+import ctrl from "./controller.js";
 
 const app = express();
 const port = "8000";
@@ -19,8 +19,6 @@ nunjucks.configure("views", {
   autoescape: true,
   express: app,
 });
-
-
 
 app.get("/", ctrl.homepage);
 app.get("/get-name", ctrl.getName);
