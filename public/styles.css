@@ -18,9 +18,15 @@ img.centered {
 }
 
 .fossil-div {
-  display: inline-block;
-  padding: 10px;
-  width: 205px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* padding: 10px; */
+  /* width: 205px; */
+}
+
+.fossil-div div {
+  padding:10px;
 }
 
 .fossil-div img {

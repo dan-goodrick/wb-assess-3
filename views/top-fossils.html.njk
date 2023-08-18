@@ -1,12 +1,31 @@
 {% extends 'base.html.njk' %}
-{% block body %}
-<h1>Welcome {{name}} </h1>
-    <div class="fossil-div">
-      {% for k,v in fossils %}
-      <h3>{{name}}, this is a {{ v.name | string}}</h3>
-      <h2>Liked {{ v.num_likes  | string}} times.</h2>
-      <img src="{{ v.img  | string}}" />
-      {% endfor %}
-    </div>
+{% block name %}
+  <h1>Welcome {{name}}
+  </h1>
 {% endblock %}
 
+{% block body %}
+  <div class="fossil-div">
+    {% for k, v in fossils %}
+      <div>
+        <h3>{{name}}, this is a {{ v.name | string}}</h3>
+        <h2>Liked {{ v.num_likes  | string}} times.</h2>
+        <img src="{{ v.img  | string}}"/>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+
+{% block form %}
+  <form action="/like-fossil" method="POST">
+    <select name="fossil" id="like-form">
+          <option>Select your favorite</option>
+      {% for k, v in fossils %}
+        {% if loop.index <= 4 %}
+          <option value={{k | string}}>{{ v.name | string}}</option>
+        {%endif%}
+      {% endfor %}
+      <input type="submit"/>
+    </select>
+  </form>
+{% endblock %}
